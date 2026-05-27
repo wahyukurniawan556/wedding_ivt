@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #161415; /* Dasar gelap */
+  color: #e5e0d8;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; color: #d8b77d; }
+.gold-text { color: #d8b77d; }
+
+/* --- BACKGROUND AESTHETIC BLUR (Di belakang konten) --- */
+.bg-aesthetic {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15; /* Tekstur foto tipis di belakang */
+}
+
+/* Bulatan cahaya abstrak agar tidak polos */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px); /* Efek blur yang kuat */
+  opacity: 0.5;
+  z-index: 0;
+}
+.blob-1 {
+  width: 300px; height: 300px;
+  background: #d8b77d; /* Warna emas */
+  top: -50px; left: -100px;
+}
+.blob-2 {
+  width: 250px; height: 250px;
+  background: #5a4b41; /* Cokelat gelap */
+  bottom: 10%; right: -50px;
+}
+
+/* --- GLASSMORPHISM (Kartu Tembus Pandang) --- */
+.glass-card {
+  background: rgba(30, 27, 28, 0.4); /* Transparan */
+  backdrop-filter: blur(12px); /* Kunci efek kacanya */
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(216, 183, 125, 0.15); /* Border emas tipis */
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* --- COVER SCREEN --- */
+.cover-screen {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 100; display: flex; align-items: center; justify-content: center;
+  background-color: #1a1718;
+}
+.cover-bg-image {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop');
+  background-size: cover; background-position: center; opacity: 0.15; z-index: 1;
+}
+.cover-content { text-align: center; padding: 20px; z-index: 2; }
+.subtitle { font-size: 1.2rem; font-style: italic; margin-bottom: 25px; color: #b39b5e; }
+.title { font-size: 2.8rem; margin: 20px 0; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+
+.cover-photo-container {
+  width: 150px; height: 200px; margin: 0 auto;
+  border-radius: 100px 100px 10px 10px; overflow: hidden;
+  border: 2px solid #d8b77d; box-shadow: 0 0 25px rgba(216, 183, 125, 0.3);
+}
+.cover-photo { width: 100%; height: 100%; object-fit: cover; }
+.to-text { font-size: 0.9rem; margin: 25px 0; color: #ccc; }
+
+.btn-buka, .btn-gold {
+  background-color: #d8b77d; color: #1a1718; border: none; padding: 12px 35px;
+  font-size: 1rem; border-radius: 30px; cursor: pointer; font-weight: 500; 
+  font-family: 'Poppins', sans-serif; transition: all 0.3s ease; display: inline-block; width: 100%;
+}
+.btn-buka { width: auto; margin-top: 15px; }
+.btn-buka:hover, .btn-gold:hover { background-color: #c4a162; transform: translateY(-2px); }
+
+/* --- TOMBOL MUSIK --- */
+.music-toggle {
+  position: fixed; bottom: 25px; right: 25px; width: 45px; height: 45px;
+  background-color: #d8b77d; border: none; border-radius: 50%;
+  font-size: 1.2rem; cursor: pointer; z-index: 999; display: flex; align-items: center; justify-content: center;
+}
+.spin { animation: spin-anim 4s linear infinite; }
+@keyframes spin-anim { 100% { transform: rotate(360deg); } }
+
+/* --- MAIN CONTENT --- */
+/* --- KISAH KITA (LOVE STORY CARD) --- */
+.story-card {
+  padding: 20px;
+}
+
+.story-photo-container {
+  width: 100%;
+  height: 250px; /* Tinggi foto cerita */
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid rgba(216, 183, 125, 0.3);
+}
+
+.story-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85); /* Sedikit digelapkan agar menyatu dengan tema */
+  transition: transform 0.5s ease;
+}
+
+.story-photo:hover {
+  transform: scale(1.05); /* Efek zoom saat foto disentuh */
+}
+
+.story-text {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+.story-text strong {
+  color: #d8b77d; /* Warna emas untuk judul fase */
+  font-size: 1.1rem;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+.story-divider {
+  border: none;
+  border-top: 1px dashed rgba(216, 183, 125, 0.4); /* Garis putus-putus elegan */
+  margin: 15px 0;
+}
+
+/* SEKARANG TIAP SECTION SEUKURAN 1 LAYAR */
+.section {
+  min-height: 100vh; /* Tinggi minimal 1 layar penuh */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Konten otomatis di tengah layar */
+  padding: 40px 0;
+}
+
+.section-title { font-size: 2.2rem; margin-bottom: 40px; position: relative; display: inline-block; }
+.section-title::after {
+  content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 1px; background-color: #d8b77d;
+}
+
+/* Desain Dalam Kotak */
+.quote-section { font-style: italic; color: #bbb; line-height: 1.8; }
+.couple-info h3 { font-size: 1.8rem; margin: 10px 0 5px; }
+.and-symbol { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #d8b77d; margin: 20px 0; }
+.divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0; }
+
+.timeline { text-align: left; padding-left: 20px; }
+.timeline h4 { margin-bottom: 5px; }
+.timeline p { font-size: 0.9rem; color: #bbb; }
+.timeline-item { margin-bottom: 20px; }
+
+/* Galeri - Karena isinya foto, kita tidak pakaikan efek kotak kaca */
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.gallery-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
+
+/* RSVP */
+.rsvp-desc { margin-bottom: 20px; font-size: 0.9rem; color: #ccc; }
+.rsvp-form { display: flex; flex-direction: column; gap: 15px; text-align: left; }
+.rsvp-form input, .rsvp-form select, .rsvp-form textarea {
+  width: 100%; padding: 12px 15px;
+  background-color: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; color: #e5e0d8; font-family: 'Poppins', sans-serif; font-size: 0.9rem;
+}
+.rsvp-form input:focus, .rsvp-form select:focus, .rsvp-form textarea:focus { outline: none; border-color: #d8b77d; }
+/* --- RSVP SECTION KHUSUS (Agar muat 2 kotak) --- */
+.rsvp-section {
+  min-height: auto; /* Disesuaikan agar bisa lebih tinggi dari 1 layar jika isinya banyak */
+  padding: 80px 0;
+}
+
+/* --- BUKU TAMU (GUESTBOOK) --- */
+.guestbook-card {
+  margin-top: 30px; /* Jarak dari form input */
+  padding: 25px 20px;
+  text-align: left;
+}
+
+.guestbook-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: #d8b77d;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(216, 183, 125, 0.2);
+  padding-bottom: 10px;
+}
+
+/* Kotak list yang bisa di-scroll secara internal */
+.guestbook-list {
+  max-height: 350px; 
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Kustomisasi Scrollbar Guestbook */
+.guestbook-list::-webkit-scrollbar {
+  width: 6px;
+}
+.guestbook-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.guestbook-list::-webkit-scrollbar-thumb {
+  background: rgba(216, 183, 125, 0.5);
+  border-radius: 10px;
+}
+
+/* Item Komentar Individu */
+.guestbook-item {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.guestbook-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.guest-name {
+  font-size: 1rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+.guest-badge {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.badge-hadir {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+.badge-tidak {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+.guest-message {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.guest-time {
+  font-size: 0.7rem;
+  color: #777;
+}
+
+/* Amplop */
+.bank-cards { display: flex; flex-direction: column; gap: 15px; }
+.account-number { font-size: 1.3rem; letter-spacing: 3px; margin: 10px 0; color: #fff; font-family: 'Courier New', monospace; }
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer { padding: 40px 0 80px; font-size: 0.9rem; color: #888; }
+.footer-names { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #d8b77d; margin-top: 10px; }

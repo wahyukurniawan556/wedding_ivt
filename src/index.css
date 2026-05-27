@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* TEMA GELAP ELEGAN (Tidak terlalu pekat) */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #231f20; /* Dark Charcoal yang lebih lembut */
+  color: #e5e0d8; /* Warna teks off-white / beige */
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #d8b77d; /* Soft Gold */
+}
+
+.gold-text { color: #d8b77d; }
+
+/* --- COVER SCREEN DENGAN BACKGROUND TEMBUS PANDANG --- */
+.cover-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  background-color: #1a1718;
+}
+
+/* Gambar latar di cover (tembus pandang) */
+.cover-bg-image {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15; /* Tingkat tembus pandang */
+  z-index: 1;
+}
+
+.cover-content { 
+  text-align: center; 
+  padding: 20px; 
+  z-index: 2; /* Agar teks berada di atas background */
+}
+
+.subtitle { font-size: 1.2rem; font-style: italic; margin-bottom: 25px; color: #b39b5e; }
+.title { font-size: 2.8rem; margin: 20px 0; letter-spacing: 2px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+
+.cover-photo-container {
+  width: 150px; height: 200px; margin: 0 auto;
+  border-radius: 100px 100px 10px 10px; overflow: hidden;
+  border: 2px solid #d8b77d;
+  box-shadow: 0 0 25px rgba(216, 183, 125, 0.3);
+}
+
+.cover-photo { width: 100%; height: 100%; object-fit: cover; }
+.to-text { font-size: 0.9rem; margin: 25px 0; color: #ccc; }
+
+/* Tombol Emas */
+.btn-buka, .btn-gold {
+  background-color: #d8b77d; color: #1a1718;
+  border: none; padding: 12px 35px;
+  font-size: 1rem; border-radius: 30px;
+  cursor: pointer; font-weight: 500; font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease; display: inline-block; width: 100%;
+}
+.btn-buka { width: auto; margin-top: 15px; }
+.btn-buka:hover, .btn-gold:hover { background-color: #c4a162; transform: translateY(-2px); }
+
+/* --- TOMBOL MUSIK --- */
+.music-toggle {
+  position: fixed;
+  bottom: 25px; right: 25px;
+  width: 45px; height: 45px;
+  background-color: #d8b77d;
+  border: none; border-radius: 50%;
+  font-size: 1.2rem; cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex; align-items: center; justify-content: center;
+}
+.spin { animation: spin-anim 4s linear infinite; }
+@keyframes spin-anim { 100% { transform: rotate(360deg); } }
+
+/* --- MAIN CONTENT --- */
+.main-content {
+  max-width: 500px; margin: 0 auto;
+  padding: 80px 20px 40px; text-align: center;
+}
+.section { margin-bottom: 90px; }
+.section-title { font-size: 2.2rem; margin-bottom: 40px; position: relative; display: inline-block; }
+.section-title::after {
+  content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+  width: 40px; height: 1px; background-color: #d8b77d;
+}
+
+.quote-section { font-style: italic; color: #bbb; line-height: 1.8; }
+.couple-info h3 { font-size: 1.8rem; margin: 10px 0 5px; }
+.and-symbol { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #d8b77d; margin: 20px 0; }
+
+/* Cards & Forms */
+.event-card, .bank-card, .rsvp-card {
+  background: #2c2729; /* Sedikit lebih terang dari background utama */
+  border: 1px solid #3d373a;
+  padding: 30px 20px; border-radius: 15px;
+  line-height: 1.8; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.divider { border: none; border-top: 1px solid #3d373a; margin: 20px 0; }
+
+/* RSVP Form Styling */
+.rsvp-desc { margin-bottom: 20px; font-size: 0.9rem; color: #ccc; }
+.rsvp-form { display: flex; flex-direction: column; gap: 15px; text-align: left; }
+.rsvp-form input, .rsvp-form select, .rsvp-form textarea {
+  width: 100%; padding: 12px 15px;
+  background-color: #1a1718; border: 1px solid #3d373a;
+  border-radius: 8px; color: #e5e0d8;
+  font-family: 'Poppins', sans-serif; font-size: 0.9rem;
+}
+.rsvp-form input:focus, .rsvp-form select:focus, .rsvp-form textarea:focus {
+  outline: none; border-color: #d8b77d;
+}
+
+/* Galeri */
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.gallery-grid img {
+  width: 100%; height: 200px; object-fit: cover;
+  border-radius: 8px; transition: transform 0.3s ease;
+}
+
+/* Amplop */
+.bank-cards { display: flex; flex-direction: column; gap: 15px; }
+.account-number { font-size: 1.3rem; letter-spacing: 3px; margin: 10px 0; color: #fff; font-family: 'Courier New', monospace; }
+.bank-cards { display: flex; flex-direction: column; gap: 15px; }
+.account-number { font-size: 1.3rem; letter-spacing: 3px; margin: 10px 0; color: #fff; font-family: 'Courier New', monospace; }
+
+.footer { margin-top: 80px; padding-top: 30px; border-top: 1px solid #3d373a; font-size: 0.9rem; color: #888; }
+.footer-names { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #d8b77d; margin-top: 10px; }
